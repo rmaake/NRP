@@ -6,8 +6,8 @@ import { ProjectViewComponent } from './project-view/project-view.component';
 import { AuthGuard } from '../guards/auth.guard';
 
 const routes: Routes = [
-  {
-    path: '',
+  {  
+    path: 'projects',
     component: ProjectListComponent,
     canActivate: [AuthGuard],
     children: [
@@ -19,11 +19,12 @@ const routes: Routes = [
         ]
       }
     ]
+  },
+
+  {
+    path: 'project-view',
+    component: ProjectViewComponent
   }
-  // {
-  //   path: 'projects',
-  //   component: ProjectListComponent
-  // }
 ];
 
 @NgModule({

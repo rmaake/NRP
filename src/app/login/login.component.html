@@ -1,15 +1,56 @@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+<script src="scripts/angular/controller.js"></script>
 
-<h2>Login</h2>
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <div class="form-group">
-    <label for="username">Username</label>
-    <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.username.errors }" />
-  </div>
-  <div class="form-group">
-      <label for="password">password</label>
-      <input type="text" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.password.errors }" />
-  </div>
-  <div class="form-group">
-    <button [disabled]="loading" class="btn btn-primary">Login</button>
-  </div>
-</form>
+<div class="box">
+    <div class="inner-box">
+        <h2 align="center">NRP LOGIN PORTAL</h2>
+        <h3 align="center">ENTER AS</h3>
+        <button onclick="document.getElementById('id01').style.display='block'" >EMPLOYEE</button>
+        <br>
+        <button>CLIENT</button>   
+    </div>
+</div>
+
+<div id="id01" class="modal">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="modal-content animate">
+        <div class="imgcontainer">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <img src="assets/nrp-logo.jpg" height="150" width="150" alt="Avatar" >
+        </div>
+
+        <div class="container">
+            <p align="center">USERNAME</p>
+            <input type="text" name="uname" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.username.errors }" required/>              
+            <p align="center">PASSWORD</p>
+            <input type="text" name="psw" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.password.errors }" required/>
+            <button type="submit" [disabled]="loading" class="btn btn-primary"><a href="dashboard">LOGIN</a></button>
+        </div>
+    </form>
+</div>
+
+<div id="id01" class="modal">
+    <form class="modal-content animate">
+        <div class="imgcontainer">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <img src="img_avatar2.png" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="container">
+            <input type="text" placeholder="Enter Username" name="uname" required>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+            <button type="submit">Login</button>
+        </div>
+    </form>
+</div>
+
+<!--SCRIPT FOR THE POPUP BOX-->
+<script>
+var modal = document.getElementById('id01');
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
