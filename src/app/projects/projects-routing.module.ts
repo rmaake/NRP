@@ -6,7 +6,7 @@ import { ProjectViewComponent } from './project-view/project-view.component';
 import { AuthGuard } from '../guards/auth.guard';
 
 const routes: Routes = [
-  {  
+  {
     path: 'projects',
     component: ProjectListComponent,
     canActivate: [AuthGuard],
@@ -15,15 +15,10 @@ const routes: Routes = [
         path: '',
         canActivateChild: [AuthGuard],
         children: [
-          { path: 'project/:id', component: ProjectViewComponent }
+          { path: ':id', component: ProjectViewComponent }
         ]
       }
     ]
-  },
-
-  {
-    path: 'project-view',
-    component: ProjectViewComponent
   }
 ];
 
